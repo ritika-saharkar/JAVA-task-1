@@ -1,0 +1,89 @@
+package pack1;
+import java.util.Scanner;
+public class ATM {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int balance=100000,withdraw,deposit,Transferamount;
+Scanner sc=new Scanner(System.in);
+System.out.println("Account user id:");
+String AccountHolder=sc.next();
+String Transferaccount;
+int pin=3122;
+System.out.println("Enter pin number:");
+int pin_No=sc.nextInt();
+if(pin_No!=3122)
+{
+	System.out.println("It's a wrong pin no:");
+	System.exit(0);	
+}
+
+if (pin_No==3122)
+{
+	while(true)
+	{
+		System.out.println("----------------------------------------------");
+		              System.out.println("**WELCOME**");
+		              System.out.println("Choose 1 for Withdraw");
+		              System.out.println("Choose 2 for deposit");
+		              System.out.println("Choose 3 for Check balance");
+		              System.out.println("Choose 4 for transfer money");
+		              System.out.println("Choose 5 to Quit");
+		              System.out.println("Choose the operation you want to perform:");
+		              int choice=sc.nextInt();
+		System.out.println("--------------------------------------------------");
+		
+		switch(choice)
+		{
+		case 1:
+			System.out.println("account Holder Name:"+AccountHolder);
+			System.out.println("Enter money to be withdrawn:");
+			withdraw=sc.nextInt();
+			if(balance>=withdraw)
+			{
+				balance=balance-withdraw;
+				System.out.println("Please collect your money");
+				System.out.println("your balance is"+balance);
+			}
+			else
+			{
+				System.out.println("Insufficient balance");
+			}
+			System.out.println("");
+			break;
+			
+		case 2:
+			System.out.println("Account Holder Name: "+AccountHolder);
+			System.out.println("Enter money to be deposited:");
+			deposit=sc.nextInt();
+			balance=balance+deposit;
+			System.out.println("Your money has been successfully deposited");
+			System.out.println("your balance is "+balance);
+			System.out.println("");
+			
+			break;
+			
+		case 3:
+			System.out.println("account Holder Name: "+AccountHolder);
+			System.out.println("Balance : "+balance);
+			System.out.println("");
+			break;
+			
+		case 4:
+			System.out.println("Account Holder Name: "+AccountHolder);
+			System.out.println("Enter the amount to transfer");
+			Transferamount=sc.nextInt();
+			balance=Transferamount;
+			System.out.println("Transfer is done successfully");
+			System.out.println("Available balance: "+balance);
+			break;
+			
+		case 5:
+			System.exit(0);
+		}
+		
+	}
+}
+	
+	}
+}
