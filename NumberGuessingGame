@@ -1,0 +1,39 @@
+package com.demo;
+import java.util.Scanner;
+public class NumberguessingGame {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int num=1;
+int userGuessNumber=0;
+int secretNumber=(int)(Math.random()*99+1);
+Scanner sc=new Scanner(System.in);
+System.out.println("WELCOME \nYou will be asked to Guess A Number To Win The Game");
+do {
+	System.out.println("Enter a guess number between 1 to 100\n");
+	if(sc.hasNextInt()) {
+		userGuessNumber=sc.nextInt();
+		if(userGuessNumber==secretNumber)
+		{
+			System.out.println("Your number is correct.You win the game!");
+			break;
+		}
+		else if (userGuessNumber < secretNumber)
+			System.out.println("Your guess number is smaller");
+		else if (userGuessNumber > secretNumber)
+			System.out.println("Your guess number is greater");
+		 
+		if(num==5) {
+			System.out.println("You have exceeded them maximum attempt.Try again");
+			break;
+		}
+		num++;
+	}
+	else {
+		System.out.println("Enter a valid integer number");
+		break;
+	}
+}while(userGuessNumber != secretNumber);
+	}
+
+}
